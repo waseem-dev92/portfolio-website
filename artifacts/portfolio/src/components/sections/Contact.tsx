@@ -27,7 +27,7 @@ const socialLinks = [
   { name: 'GitHub', icon: Github, href: '#' },
   { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/waseemabbas-b56670305' },
   { name: 'Twitter', icon: Twitter, href: '#' },
-  { name: 'Email', icon: Mail, href: 'mailto:contact@example.com' },
+  { name: 'Email', icon: Mail, href: 'mailto:abbaswasi590@gmail.com' },
 ];
 
 export function Contact() {
