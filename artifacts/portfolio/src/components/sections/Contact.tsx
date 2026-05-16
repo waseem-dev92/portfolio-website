@@ -24,7 +24,7 @@ const formSchema = z.object({
 });
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: '#' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/waseem-dev92' },
   { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/waseemabbas-b56670305' },
   { name: 'Twitter', icon: Twitter, href: '#' },
   { name: 'Email', icon: Mail, href: 'mailto:abbaswasi590@gmail.com' },
