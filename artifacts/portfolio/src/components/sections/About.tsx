@@ -36,10 +36,11 @@ export function About() {
             className="space-y-6 text-lg text-muted-foreground"
           >
             <p>
-              I am a passionate full-stack developer with expertise in building scalable web applications and modern user interfaces. I specialize in bridging the gap between robust backend architecture and pixel-perfect frontend design.
+              I am a Software Engineer with a strong passion for developing modern, scalable, and user-friendly web applications. I focus on creating clean, efficient, and high-performance solutions that deliver seamless user experiences across different platforms.
+With expertise in frontend and backend development, I enjoy transforming ideas into functional digital products using modern technologies and best development practices. I am committed to writing clean and maintainable code while continuously improving my technical skills and industry knowledge.
             </p>
             <p>
-              My journey started with a curiosity for how things work on the internet, which quickly evolved into a deep-seated drive to build impactful digital products. I believe in clean code, intuitive user experiences, and continuous learning.
+     I am highly motivated, detail-oriented, and always eager to take on new challenges that help me grow professionally. My goal is to contribute to innovative projects and build impactful software solutions that create real-world value.
             </p>
             
             <div className="grid grid-cols-2 gap-6 pt-8">

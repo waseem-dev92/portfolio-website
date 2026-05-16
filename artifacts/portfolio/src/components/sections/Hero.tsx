@@ -43,7 +43,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl"
           >
-            Hi, I'm Waseem Abbas. A Full Stack Developer crafting precise, scalable, and stunning web applications with modern technologies.
+          Hi, I'm Waseem Abbas — a Software Engineer passionate about building modern, scalable, and high-performance web applications. I specialize in creating clean, efficient, and visually engaging digital experiences using modern technologies and best development practices.
           </motion.p>
 
           <motion.div

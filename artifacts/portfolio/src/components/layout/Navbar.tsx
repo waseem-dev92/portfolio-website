@@ -44,7 +44,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#" className="text-xl font-display font-bold tracking-tight text-white flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center border border-primary/30 text-primary">W</span>
-          Waseem
+          Waseem Abbas 
         </a>
         
         <nav className="hidden md:flex items-center gap-8">
