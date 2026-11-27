@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -25,7 +26,7 @@ const formSchema = z.object({
 
 const socialLinks = [
   { name: 'GitHub', icon: Github, href: 'https://github.com/waseem-dev92' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/waseemabbas-b56670305' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/waseem-abbas-b56670305' },
   { name: 'Twitter', icon: Twitter, href: 'https://x.com/WaseemAbbasArai' },
   { name: 'Email', icon: Mail, href: 'mailto:abbaswasi590@gmail.com' },
 ];
@@ -40,12 +41,33 @@ export function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast.success('Message sent successfully!', {
-      description: "I'll get back to you as soon as possible.",
-    });
-    form.reset();
+  const { isSubmitting } = form.formState;
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch('https://formspree.io/f/xrpqdvvg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error('Message submission failed');
+      }
+
+      toast.success('Message sent successfully!', {
+        description: "I'll get back to you as soon as possible.",
+      });
+
+      form.reset();
+    } catch (error) {
+      toast.error('Unable to send message', {
+        description: 'Please try again or contact me by email.',
+      });
+    }
   }
 
   return (
@@ -90,6 +112,7 @@ export function Contact() {
                       </FormItem>
                     )}
                   />
+
                   <FormField
                     control={form.control}
                     name="email"
@@ -97,12 +120,13 @@ export function Contact() {
                       <FormItem>
                         <FormLabel className="text-gray-300">Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="john@example.com" {...field} className="bg-black/40 border-white/10 focus-visible:ring-primary/50 text-white placeholder:text-gray-600" />
+                          <Input type="email" placeholder="john@example.com" {...field} className="bg-black/40 border-white/10 focus-visible:ring-primary/50 text-white placeholder:text-gray-600" />
                         </FormControl>
                         <FormMessage className="text-destructive/90" />
                       </FormItem>
                     )}
                   />
+
                   <FormField
                     control={form.control}
                     name="message"
@@ -110,18 +134,24 @@ export function Contact() {
                       <FormItem>
                         <FormLabel className="text-gray-300">Message</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="Your message here..." 
+                          <Textarea
+                            placeholder="Your message here..."
                             className="min-h-[150px] bg-black/40 border-white/10 focus-visible:ring-primary/50 text-white placeholder:text-gray-600 resize-none"
-                            {...field} 
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage className="text-destructive/90" />
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full h-12 text-base font-semibold shadow-[0_0_20px_rgba(0,195,255,0.2)] hover:shadow-[0_0_30px_rgba(0,195,255,0.4)] transition-all gap-2">
-                    Send Message <Send className="w-4 h-4" />
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full h-12 text-base font-semibold shadow-[0_0_20px_rgba(0,195,255,0.2)] hover:shadow-[0_0_30px_rgba(0,195,255,0.4)] transition-all gap-2"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    <Send className="w-4 h-4" />
                   </Button>
                 </form>
               </Form>
@@ -140,7 +170,7 @@ export function Contact() {
                 <h3 className="text-2xl font-display font-bold text-white mb-2">Connect</h3>
                 <p className="text-muted-foreground">Find me on these platforms or drop me an email.</p>
               </div>
-              
+
               <div className="flex flex-col gap-4">
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
@@ -148,6 +178,8 @@ export function Contact() {
                     <a
                       key={link.name}
                       href={link.href}
+                      target={link.name === 'Email' ? undefined : '_blank'}
+                      rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
                       className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all duration-300"
                     >
                       <div className="w-12 h-12 rounded-lg bg-black/40 flex items-center justify-center text-muted-foreground group-hover:text-primary transition-colors">
