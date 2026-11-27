@@ -69,6 +69,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
+            className="order-2 lg:order-2 flex flex-col items-center text-center lg:items-start lg:text-left"
           >
             <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-primary">
               <Terminal className="w-4 h-4" />
