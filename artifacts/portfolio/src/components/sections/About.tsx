@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import { Code2, Briefcase, Zap, GitCommit } from 'lucide-react';
 import avatarImg from '@/assets/avatar.png';
 
+
 const stats = [
-  { label: 'Years Experience', value: '4+', icon: Briefcase },
-  { label: 'Projects Completed', value: '40+', icon: Code2 },
-  { label: 'Tech Stack', value: 'Modern', icon: Zap },
-  { label: 'Commits', value: '2k+', icon: GitCommit },
+  { label: 'Experience', value: '1–2 Years', icon: Briefcase },
+  { label: 'Specialization', value: 'Full Stack', icon: Code2 },
+  { label: 'Backend', value: 'PHP & Laravel', icon: Zap },
+  { label: 'Frontend', value: 'React.js', icon: GitCommit },
 ];
+
 
 export function About() {
   return (
@@ -35,13 +37,23 @@ export function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-6 text-lg text-muted-foreground"
           >
-            <p>
-              I am a Software Engineer with a strong passion for developing modern, scalable, and user-friendly web applications. I focus on creating clean, efficient, and high-performance solutions that deliver seamless user experiences across different platforms.
-With expertise in frontend and backend development, I enjoy transforming ideas into functional digital products using modern technologies and best development practices. I am committed to writing clean and maintainable code while continuously improving my technical skills and industry knowledge.
-            </p>
-            <p>
-     I am highly motivated, detail-oriented, and always eager to take on new challenges that help me grow professionally. My goal is to contribute to innovative projects and build impactful software solutions that create real-world value.
-            </p>
+            
+<p>
+  I am Waseem Abbas, a Software Engineer based in Karachi, Pakistan,
+  with a Bachelor's degree in Information Technology from Shah
+  Abdul Latif University. I specialize in web development,
+  focusing on PHP, Laravel, CodeIgniter, React.js, JavaScript,
+  MySQL, and REST API integration.
+</p>
+
+<p>
+  I enjoy building responsive, scalable, and user-friendly web
+  applications using modern development practices. I am passionate
+  about solving problems, writing clean code, and continuously
+  improving my skills while contributing to meaningful software
+  projects.
+</p>
+
             
             <div className="grid grid-cols-2 gap-6 pt-8">
               {stats.map((stat, index) => {
