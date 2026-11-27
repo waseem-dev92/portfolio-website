@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Terminal } from 'lucide-react';
@@ -5,62 +6,92 @@ import { Button } from '@/components/ui/button';
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-6xl mx-auto">
+
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-primary"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
           >
-            <Terminal className="w-4 h-4" />
-            <span>Available for new opportunities</span>
+            <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-primary">
+              <Terminal className="w-4 h-4" />
+              <span>Available for new opportunities</span>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-white mb-6 leading-tight">
+              Hi, I'm <br />
+              Waseem{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
+                Abbas
+              </span>
+            </h1>
+
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-300 mb-5">
+              Full Stack Developer
+            </h2>
+
+            <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-xl">
+              I'm a Software Engineer passionate about building modern,
+              scalable, and high-performance web applications. I specialize
+              in PHP, Laravel, React.js, JavaScript, MySQL, and REST APIs.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Button
+                size="lg"
+                className="rounded-full px-8 h-14 text-base font-semibold shadow-[0_0_20px_rgba(0,195,255,0.3)] hover:shadow-[0_0_30px_rgba(0,195,255,0.5)] transition-all"
+                asChild
+              >
+                <a href="#projects">
+                  View Projects <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full px-8 h-14 text-base font-semibold border-white/10 hover:bg-white/5 hover:text-white"
+                asChild
+              >
+                <a href="#contact">Contact Me</a>
+              </Button>
+            </div>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-white mb-6 leading-tight"
-          >
-            Building digital <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
-              experiences
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl"
-          >
-          Hi, I'm Waseem Abbas — a Software Engineer passionate about building modern, scalable, and high-performance web applications. I specialize in creating clean, efficient, and visually engaging digital experiences using modern technologies and best development practices.
-          </motion.p>
-
+          {/* Right Profile Image */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center gap-4"
+            initial={{ opacity: 0, scale: 0.9, x: 40 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative flex justify-center items-center"
           >
-            <Button size="lg" className="rounded-full px-8 h-14 text-base font-semibold shadow-[0_0_20px_rgba(0,195,255,0.3)] hover:shadow-[0_0_30px_rgba(0,195,255,0.5)] transition-all" asChild>
-              <a href="#projects">
-                View Projects <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base font-semibold border-white/10 hover:bg-white/5 hover:text-white" asChild>
-              <a href="#contact">Contact Me</a>
-            </Button>
+            <div className="absolute w-72 h-72 md:w-96 md:h-96 bg-blue-600/20 rounded-full blur-[100px]" />
+
+            <div className="relative w-full max-w-md">
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/50 via-blue-500/30 to-purple-600/50 blur-xl opacity-60" />
+
+              <img
+                src={`${import.meta.env.BASE_URL}waseem-profile.png`}
+                alt="Waseem Abbas - Software Engineer"
+                className="relative w-full aspect-[4/5] object-cover object-top rounded-3xl border border-white/10 shadow-2xl"
+              />
+            </div>
           </motion.div>
+
         </div>
       </div>
     </section>
