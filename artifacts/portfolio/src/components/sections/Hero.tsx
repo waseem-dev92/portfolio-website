@@ -61,7 +61,7 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8 items-center max-w-6xl mx-auto">
 
           {/* Left Text Content */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
