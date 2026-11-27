@@ -1,10 +1,53 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+const titles = [
+  'Software Engineer',
+  'Full Stack Developer',
+  'Backend Developer',
+  'PHP / Laravel Developer',
+  'React.js Developer',
+];
+
 export function Hero() {
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentTitle = titles[titleIndex];
+
+    let speed = isDeleting ? 45 : 100;
+
+    if (!isDeleting && displayText === currentTitle) {
+      speed = 1500;
+    }
+
+    if (isDeleting && displayText === '') {
+      speed = 400;
+    }
+
+    const timer = setTimeout(() => {
+      if (!isDeleting && displayText === currentTitle) {
+        setIsDeleting(true);
+      } else if (isDeleting && displayText === '') {
+        setIsDeleting(false);
+        setTitleIndex((prev) => (prev + 1) % titles.length);
+      } else {
+        setDisplayText(
+          isDeleting
+            ? currentTitle.substring(0, displayText.length - 1)
+            : currentTitle.substring(0, displayText.length + 1)
+        );
+      }
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, titleIndex]);
+
   return (
     <section
       id="hero"
@@ -18,7 +61,7 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-6xl mx-auto">
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-6xl mx-auto">
 
           {/* Left Content */}
           <motion.div
@@ -40,8 +83,12 @@ export function Hero() {
               </span>
             </h1>
 
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-300 mb-5">
-              Full Stack Developer
+            {/* Typing Animation */}
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-300 mb-5 min-h-[2rem]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
+                {displayText}
+              </span>
+              <span className="inline-block w-[2px] h-6 bg-primary ml-1 align-middle animate-pulse" />
             </h2>
 
             <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-xl">
