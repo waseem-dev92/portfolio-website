@@ -63,11 +63,8 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-6xl mx-auto">
 
-          {/* Text Content */}
-          <motion.div
-            
-            className="order-1 lg:order-2 flex flex-col items-center text-center lg:items-start lg:text-left"
-          >
+          {/* Left Text Content */}
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-primary">
               <Terminal className="w-4 h-4" />
               <span>Available for new opportunities</span>
@@ -115,10 +112,10 @@ export function Hero() {
                 <a href="#contact">Contact Me</a>
               </Button>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Profile Image */}
-          <div className="order-2 lg:order-1 relative flex justify-center items-center">
+          {/* Right Profile Image - No Animation */}
+          <div className="relative flex justify-center items-center">
             <div className="absolute w-72 h-72 md:w-96 md:h-96 bg-blue-600/20 rounded-full blur-[100px]" />
 
             <div className="relative w-full max-w-md">
