@@ -4,14 +4,16 @@ import { ExternalLink, Github, FolderOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const projects = [
+  
   {
-    title: 'Nexus Analytics Platform',
-    description: 'A comprehensive real-time data analytics dashboard with customizable widgets, predictive modeling, and granular access controls for enterprise clients.',
-    tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'TailwindCSS'],
-    github: '#',
+    title: 'PeopleCore',
+    description: 'An Employee Management System designed to organize and manage employee-related information through a modern web application.',
+    tech: ['TypeScript'],
+    github: 'https://github.com/waseem-dev92/peoplecore',
     live: '#',
     featured: true,
   },
+
   {
     title: 'Quantum E-Commerce',
     description: 'A headless e-commerce storefront utilizing modern Jamstack architecture. Features include instant search, cart synchronization, and dynamic routing.',
